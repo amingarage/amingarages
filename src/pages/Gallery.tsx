@@ -154,6 +154,7 @@
 import React, { useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { galleryImages } from "../assets/assets";
+import SEOMeta from "../components/SEOMeta";
 
 const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -182,7 +183,23 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <div className="pt-24">
+    <>
+      <SEOMeta
+        title="Amin Garage Gallery - Auto Repair Workshop Photos & Facility Tour"
+        description="Browse our workshop gallery to see our modern facility, expert technicians, and quality car repair work. View images of our services in Faqir Wali, Bahawalnagar. Professional automotive care."
+        keywords={[
+          "car repair gallery",
+          "auto workshop photos",
+          "garage facility tour",
+          "car repair images",
+          "Amin Gallery",
+          "mechanic workshop",
+          "automotive repair photos",
+          "car service center pictures"
+        ]}
+        canonicalUrl="https://www.amingarage.com/gallery"
+      />
+      <div className="pt-24">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-red-600 to-red-800 text-[#C0C0C0]">
         <div className="max-w-7xl mx-auto px-4 text-center">
@@ -266,6 +283,7 @@ const Gallery: React.FC = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

@@ -2,6 +2,7 @@ import React from "react";
 import { Calendar, User, ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { blogImages } from "../assets/blogs/blogs";
+import SEOMeta from "../components/SEOMeta";
 
 const blogs = [
   {
@@ -523,7 +524,23 @@ const Blog: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="pt-24">
+    <>
+      <SEOMeta
+        title="Amin Garage Blog - Expert Car Repair Tips & Automotive Advice"
+        description="Read our latest automotive blog posts for expert car repair tips, maintenance advice, and industry insights from professional mechanics in Faqir Wali, Bahawalnagar. Trusted automotive guidance."
+        keywords={[
+          "car repair blog",
+          "automotive tips",
+          "car maintenance advice",
+          "auto repair tutorials",
+          "mechanic blog Pakistan",
+          "car service tips",
+          "automotive news",
+          "vehicle maintenance guide"
+        ]}
+        canonicalUrl="https://www.amingarage.com/blog"
+      />
+      <div className="pt-24">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-red-600 to-red-800 text-[#C0C0C0]">
         <div className="max-w-7xl mx-auto px-4 text-center">
@@ -626,6 +643,7 @@ const Blog: React.FC = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

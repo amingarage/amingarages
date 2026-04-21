@@ -1,6 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { blogImages } from "../assets/blogs/blogs";
 import { useEffect } from "react";
+import SEOMeta from "../components/SEOMeta";
 
 // Custom component to handle HTML content with Link components
 const HTMLContentWithLinks = ({ html }) => {
@@ -591,7 +592,24 @@ export default function BlogDetails() {
     );
 
   return (
-    <div className="min-h-screen bg-white py-12 px-4 sm:px-6">
+    <>
+      <SEOMeta
+        title={`${blog.title} | Amin Garage Blog`}
+        description={`${blog.excerpt} Read expert automotive advice and professional car repair tips from Amin Garage mechanics in Faqir Wali, Bahawalnagar.`}
+        keywords={[
+          ...blog.category.toLowerCase().split(' '),
+          'car repair blog',
+          'automotive advice',
+          'mechanic tips',
+          'vehicle maintenance',
+          'Amin Garage',
+          'Bahawalnagar auto'
+        ]}
+        canonicalUrl={`https://www.amingarage.com/blog/${blog.id}`}
+        ogImage={blog.image}
+        ogType="article"
+      />
+      <div className="min-h-screen bg-white py-12 px-4 sm:px-6">
       <div className="max-w-4xl mx-auto">
         {/* Blog Title */}
         <h1 className="text-4xl font-bold text-center mb-6">{blog.title}</h1>
@@ -628,5 +646,6 @@ export default function BlogDetails() {
         </div>
       </div>
     </div>
+    </>
   );
 }

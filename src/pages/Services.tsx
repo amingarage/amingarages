@@ -1,6 +1,7 @@
 import React from "react";
 import { Check, Clock } from "lucide-react";
 import { images, servicesImages } from "../assets/assets";
+import SEOMeta from "../components/SEOMeta";
 
 const Services: React.FC = () => {
   const services = [
@@ -204,7 +205,25 @@ const Services: React.FC = () => {
       : services.filter((service) => service.category === activeCategory);
 
   return (
-    <div className="pt-24">
+    <>
+      <SEOMeta
+        title="Professional Car Services & Auto Repair | Amin Garage Faqir Wali"
+        description="Complete automotive services in Faqir Wali: Engine repair, AC service, denting, painting, wheel alignment & more. Expert mechanics at affordable prices. Call +92 307 6552348 now!"
+        keywords={[
+          "car repair services",
+          "auto repair Faqir Wali",
+          "engine maintenance",
+          "AC repair service",
+          "car denting painting",
+          "wheel alignment",
+          "battery replacement",
+          "transmission service",
+          "automotive workshop Bahawalnagar",
+          "professional mechanics"
+        ]}
+        canonicalUrl="https://www.amingarage.com/services"
+      />
+      <div className="pt-24">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-red-600 to-red-800 text-[#C0C0C0]">
         <div className="max-w-7xl mx-auto px-4 text-center">
@@ -321,6 +340,7 @@ const Services: React.FC = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

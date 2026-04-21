@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import emailjs from "emailjs-com";
+import SEOMeta from "../components/SEOMeta";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -51,7 +52,23 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="pt-24">
+    <>
+      <SEOMeta
+        title="Contact Amin Garage - Car Repair Service in Faqir Wali | Call +92 307 6552348"
+        description="Contact Amin Garage for expert car repair services in Faqir Wali, Bahawalnagar. Call +92 307 6552348, visit our workshop, or fill our online form for quick assistance. Reliable automotive service."
+        keywords={[
+          "contact car repair",
+          "garage phone number",
+          "auto workshop contact",
+          "car mechanic Faqir Wali",
+          "emergency car repair",
+          "book car service",
+          "Amin Garage contact",
+          "Bahawalnagar garage"
+        ]}
+        canonicalUrl="https://www.amingarage.com/contact"
+      />
+      <div className="pt-24">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-red-600 to-red-800 text-[#C0C0C0]">
         <div className="max-w-7xl mx-auto px-4 text-center">
@@ -319,6 +336,7 @@ const Contact: React.FC = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

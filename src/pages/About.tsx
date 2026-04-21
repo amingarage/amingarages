@@ -1,6 +1,7 @@
 import React from "react";
 import { Users, Award, Wrench, Heart } from "lucide-react";
 import { teamImages } from "../assets/assets";
+import SEOMeta from "../components/SEOMeta";
 
 const About: React.FC = () => {
   const teamMembers = [
@@ -52,7 +53,23 @@ const About: React.FC = () => {
   ];
 
   return (
-    <div className="pt-24">
+    <>
+      <SEOMeta
+        title="About Amin Garage - Trusted Auto Repair Experts in Bahawalnagar"
+        description="Meet our expert team at Amin Garage. 15+ years serving Faqir Wali with professional car repair, engine services, and honest automotive care. Learn our trusted story and values."
+        keywords={[
+          "about Amin Garage",
+          "auto repair team Bahawalnagar",
+          "car mechanics Faqir Wali",
+          "Muhammad Adnan Amin",
+          "automotive experts Pakistan",
+          "trusted garage",
+          "professional mechanics",
+          "car service history"
+        ]}
+        canonicalUrl="https://www.amingarage.com/about"
+      />
+      <div className="pt-24">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-red-600 to-red-800 text-[#C0C0C0]">
         <div className="max-w-7xl mx-auto px-4 text-center">
@@ -210,6 +227,7 @@ const About: React.FC = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

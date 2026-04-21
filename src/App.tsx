@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from 'react-helmet-async';
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
@@ -14,7 +15,8 @@ import NotFound from "./pages/NotFound";
 
 function App() {
   return (
-    <Router>
+    <HelmetProvider>
+      <Router>
       <div className="min-h-screen bg-white">
         <Navbar />
         <main>
@@ -33,6 +35,7 @@ function App() {
         <WhatsAppButton />
       </div>
     </Router>
+    </HelmetProvider>
   );
 }
 
