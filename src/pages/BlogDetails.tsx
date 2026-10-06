@@ -2,6 +2,13 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { blogImages } from "../assets/blogs/blogs";
 import { useEffect } from "react";
 import SEOMeta from "../components/SEOMeta";
+import JsonLd from "../components/JsonLd";
+import { blogById } from "../data/blogs";
+import {
+  pageGraph,
+  webPageSchema,
+  articleSchema,
+} from "../data/schema";
 
 // Custom component to handle HTML content with Link components
 const HTMLContentWithLinks = ({ html }) => {
@@ -565,13 +572,16 @@ export default function BlogDetails() {
   const { id } = useParams();
   const blog = blogs.find((b) => b.id === id);
 
-  // Debug: Log the ID and check if blog is found
-  useEffect(() => {
-    console.log("URL ID:", id);
-    console.log("Found blog:", blog);
-  }, [id, blog]);
+  // Every field below the blog body comes from src/data/blogs.ts, which is the
+  // same module AppRoutes uses to decide which /blog/:id pages to prerender and
+  // what the sitemap lists. Titles and dates therefore cannot drift apart.
+  const meta = id ? blogById(id) : undefined;
 
-  if (!blog) {
+  useEffect(() => {
+    if (!meta) document.title = "Post not found | Amin Garage";
+  }, [meta]);
+
+  if (!blog || !meta) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center p-6">
         <p className="text-lg mb-4">Blog post not found</p>
@@ -594,23 +604,31 @@ export default function BlogDetails() {
   return (
     <>
       <SEOMeta
-        title={`${blog.title} | Amin Garage Blog`}
-        description={`${blog.excerpt} Read expert automotive advice and professional car repair tips from Amin Garage mechanics in Faqir Wali, Bahawalnagar.`}
-        keywords={[
-          ...blog.category.toLowerCase().split(' '),
-          'car repair blog',
-          'automotive advice',
-          'mechanic tips',
-          'vehicle maintenance',
-          'Amin Garage',
-          'Bahawalnagar auto'
-        ]}
-        canonicalUrl={`https://www.amingarage.com/blog/${blog.id}`}
-        ogImage={blog.image}
+        title={meta.seoTitle}
+        description={meta.description}
+        pathname={`/blog/${blog.id}`}
         ogType="article"
+        publishedTime={meta.dateISO}
+      />
+      <JsonLd
+        data={pageGraph([
+          articleSchema({
+            headline: blog.title,
+            description: meta.description,
+            image: blog.image,
+            datePublished: meta.dateISO,
+            pathname: `/blog/${blog.id}`,
+          }),
+          webPageSchema({
+            pathname: `/blog/${blog.id}`,
+            name: meta.seoTitle,
+            description: meta.description,
+          }),
+        ])}
       />
       <div className="min-h-screen bg-white py-12 px-4 sm:px-6">
       <div className="max-w-4xl mx-auto">
+
         {/* Blog Title */}
         <h1 className="text-4xl font-bold text-center mb-6">{blog.title}</h1>
 
@@ -618,7 +636,7 @@ export default function BlogDetails() {
         <div className="flex justify-center gap-4 text-gray-600 mb-12">
           <span>By {blog.author}</span>
           <span>•</span>
-          <span>{blog.date}</span>
+          <time dateTime={meta.dateISO}>{blog.date}</time>
           <span>•</span>
           <span>{blog.readTime}</span>
         </div>

@@ -1,7 +1,9 @@
 import React from "react";
 import { Check, Clock } from "lucide-react";
-import { images, servicesImages } from "../assets/assets";
+import { servicesImages } from "../assets/assets";
 import SEOMeta from "../components/SEOMeta";
+import JsonLd from "../components/JsonLd";
+import { pageGraph, webPageSchema } from "../data/schema";
 
 const Services: React.FC = () => {
   const services = [
@@ -207,21 +209,19 @@ const Services: React.FC = () => {
   return (
     <>
       <SEOMeta
-        title="Professional Car Services & Auto Repair | Amin Garage Faqir Wali"
-        description="Complete automotive services in Faqir Wali: Engine repair, AC service, denting, painting, wheel alignment & more. Expert mechanics at affordable prices. Call +92 307 6552348 now!"
-        keywords={[
-          "car repair services",
-          "auto repair Faqir Wali",
-          "engine maintenance",
-          "AC repair service",
-          "car denting painting",
-          "wheel alignment",
-          "battery replacement",
-          "transmission service",
-          "automotive workshop Bahawalnagar",
-          "professional mechanics"
-        ]}
-        canonicalUrl="https://www.amingarage.com/services"
+        title="Car Repair Services in Faqir Wali"
+        description="Car services at Amin Garage, Faqir Wali: engine repair, AC service, denting, painting, wheel alignment, suspension and battery work. Call +92 307 6552348."
+        pathname="/services"
+      />
+      <JsonLd
+        data={pageGraph([
+          webPageSchema({
+            pathname: "/services",
+            name: "Car Repair Services in Faqir Wali | Amin Garage",
+            description:
+              "Auto repair, denting, painting and mechanical services offered by Amin Garage in Faqir Wali.",
+          }),
+        ])}
       />
       <div className="pt-24">
       {/* Hero Section */}

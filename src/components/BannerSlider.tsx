@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { banners, bannerMb } from "../assets/assets.js";
-import banner3 from "../assets/banner3.jpg";
 
 const BannerSlider = ({ autoPlay = true, interval = 1500 }) => {
-  const desktopImages = Object.values(banners);
-  const mobileImages = Object.values(bannerMb);
+  // The asset maps come from an untyped .js module, so Object.values infers
+  // unknown[] and the src/alt props reject it.
+  const desktopImages = Object.values(banners) as string[];
+  const mobileImages = Object.values(bannerMb) as string[];
 
   // Choose the smaller length to avoid index mismatch
   const totalSlides = Math.min(desktopImages.length, mobileImages.length);

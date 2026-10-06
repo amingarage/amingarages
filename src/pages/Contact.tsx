@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import emailjs from "emailjs-com";
 import SEOMeta from "../components/SEOMeta";
+import JsonLd from "../components/JsonLd";
+import { pageGraph, webPageSchema } from "../data/schema";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -54,19 +56,19 @@ const Contact: React.FC = () => {
   return (
     <>
       <SEOMeta
-        title="Contact Amin Garage - Car Repair Service in Faqir Wali | Call +92 307 6552348"
-        description="Contact Amin Garage for expert car repair services in Faqir Wali, Bahawalnagar. Call +92 307 6552348, visit our workshop, or fill our online form for quick assistance. Reliable automotive service."
-        keywords={[
-          "contact car repair",
-          "garage phone number",
-          "auto workshop contact",
-          "car mechanic Faqir Wali",
-          "emergency car repair",
-          "book car service",
-          "Amin Garage contact",
-          "Bahawalnagar garage"
-        ]}
-        canonicalUrl="https://www.amingarage.com/contact"
+        title="Contact Amin Garage | Car Repair in Faqir Wali"
+        description="Contact Amin Garage in Faqir Wali, Bahawalnagar. Call +92 307 6552348, email amingarage96@gmail.com, or send a message. Open Mon-Thu and Sat-Sun, 8am-8pm."
+        pathname="/contact"
+      />
+      <JsonLd
+        data={pageGraph([
+          webPageSchema({
+            pathname: "/contact",
+            name: "Contact Amin Garage | Car Repair in Faqir Wali",
+            description:
+              "Phone, email, address and opening hours for Amin Garage in Faqir Wali.",
+          }),
+        ])}
       />
       <div className="pt-24">
       {/* Hero Section */}

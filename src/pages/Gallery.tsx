@@ -155,6 +155,9 @@ import React, { useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { galleryImages } from "../assets/assets";
 import SEOMeta from "../components/SEOMeta";
+import JsonLd from "../components/JsonLd";
+import { business } from "../data/site";
+import { pageGraph, webPageSchema } from "../data/schema";
 
 const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -185,19 +188,26 @@ const Gallery: React.FC = () => {
   return (
     <>
       <SEOMeta
-        title="Amin Garage Gallery - Auto Repair Workshop Photos & Facility Tour"
-        description="Browse our workshop gallery to see our modern facility, expert technicians, and quality car repair work. View images of our services in Faqir Wali, Bahawalnagar. Professional automotive care."
-        keywords={[
-          "car repair gallery",
-          "auto workshop photos",
-          "garage facility tour",
-          "car repair images",
-          "Amin Gallery",
-          "mechanic workshop",
-          "automotive repair photos",
-          "car service center pictures"
-        ]}
-        canonicalUrl="https://www.amingarage.com/gallery"
+        title="Workshop Gallery | Car Repair Photos in Faqir Wali"
+        description="Photos from the Amin Garage workshop in Faqir Wali: our facility, mechanics at work, and finished body repair and painting jobs. Photos from a Bahawalnagar auto shop."
+        pathname="/gallery"
+      />
+      <JsonLd
+        data={pageGraph([
+          webPageSchema({
+            pathname: "/gallery",
+            name: "Workshop Gallery | Car Repair Photos in Faqir Wali",
+            description:
+              "Photos of the Amin Garage workshop, technicians, and completed repair and painting jobs.",
+          }),
+          {
+            "@type": "ImageGallery",
+            "@id": `${business.url}/gallery#gallery`,
+            name: "Amin Garage workshop gallery",
+            url: `${business.url}/gallery`,
+            about: { "@id": `${business.url}/#organization` },
+          },
+        ])}
       />
       <div className="pt-24">
       {/* Hero Section */}

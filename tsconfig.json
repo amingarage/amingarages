@@ -1,8 +1,31 @@
 {
   "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2021", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "jsx": "react-jsx",
+    "allowImportingTsExtensions": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node"
-  }
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "skipLibCheck": true,
+
+    /*
+      The original tsconfig set almost no options, which is why the existing
+      components compile despite untyped JS asset modules and unused React
+      imports. Turning on strict/noUnusedLocals here would flag roughly twenty
+      files that are not part of the SEO work, so those checks stay off and the
+      new SEO modules are written to satisfy strict mode anyway.
+    */
+    "strict": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+
+    "types": ["vite/client", "node"]
+  },
+  "include": ["src"]
 }

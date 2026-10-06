@@ -3,6 +3,9 @@ import { Calendar, User, ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { blogImages } from "../assets/blogs/blogs";
 import SEOMeta from "../components/SEOMeta";
+import JsonLd from "../components/JsonLd";
+import { business } from "../data/site";
+import { pageGraph, webPageSchema } from "../data/schema";
 
 const blogs = [
   {
@@ -526,19 +529,31 @@ const Blog: React.FC = () => {
   return (
     <>
       <SEOMeta
-        title="Amin Garage Blog - Expert Car Repair Tips & Automotive Advice"
-        description="Read our latest automotive blog posts for expert car repair tips, maintenance advice, and industry insights from professional mechanics in Faqir Wali, Bahawalnagar. Trusted automotive guidance."
-        keywords={[
-          "car repair blog",
-          "automotive tips",
-          "car maintenance advice",
-          "auto repair tutorials",
-          "mechanic blog Pakistan",
-          "car service tips",
-          "automotive news",
-          "vehicle maintenance guide"
-        ]}
-        canonicalUrl="https://www.amingarage.com/blog"
+        title="Car Repair Blog | Advice from Amin Garage, Faqir Wali"
+        description="Car repair and maintenance guides from the Amin Garage team in Faqir Wali. Read about AC service, tyre care, denting, painting, polishing and spare parts."
+        pathname="/blog"
+      />
+      <JsonLd
+        data={pageGraph([
+          webPageSchema({
+            pathname: "/blog",
+            name: "Car Repair Blog | Advice from Amin Garage, Faqir Wali",
+            description:
+              "Car repair and maintenance articles written by the Amin Garage team.",
+          }),
+          {
+            "@type": "ItemList",
+            "@id": `${business.url}/blog#list`,
+            name: "Amin Garage car repair articles",
+            numberOfItems: blogs.length,
+            itemListElement: blogs.map((post, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              url: `${business.url}/blog/${post.id}`,
+              name: post.title,
+            })),
+          },
+        ])}
       />
       <div className="pt-24">
       {/* Hero Section */}
@@ -560,7 +575,7 @@ const Blog: React.FC = () => {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col gap-10 flex-wrap">
-            {blogs.map((blog: any) => (
+            {blogs.map((blog) => (
               <article
                 onClick={() => navigate("/blog/" + blog.id)}
                 key={blog.id}

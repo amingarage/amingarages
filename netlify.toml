@@ -1,0 +1,57 @@
+# Netlify configuration for amingarage.com
+#
+# The site is now fully prerendered: every route has its own HTML file in the
+# build output, so there is no SPA rewrite and no catch-all.
+#
+# The previous public/_redirects contained:
+#     /*  /index.html  200
+# A forced 200 on every path means an unknown URL such as /srevicez returned the
+# homepage with a 200 status. Google treats that as a soft 404: it wastes crawl
+# budget, and the pages the homepage links to compete with a near-duplicate
+# "page" at every typo URL. Removing that rule is what makes the 404 below work.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# The www host 301-redirects to non-www. Every canonical, sitemap entry and
+# og:url on the site points at the non-www host, so this keeps a single canonical
+# version of each URL.
+[[redirects]]
+  from = "https://www.amingarage.com/*"
+  to = "https://amingarage.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://amingarage.com/*"
+  to = "https://amingarage.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.amingarage.com/*"
+  to = "https://amingarage.com/:splat"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/og/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# No explicit 404 rule is needed. Netlify serves dist/404.html with a real 404
+# status when a path does not resolve to a file, and that file is prerendered
+# with noindex and no canonical tag.

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { images, servicesImages, servicesIcons } from "../assets/assets.js";
+import { servicesImages, servicesIcons } from "../assets/assets.js";
 import { ArrowRight, Shield } from "lucide-react";
 import BannerSlider from "./BannerSlider.js";
 
@@ -294,7 +294,7 @@ const ServicesOverview: React.FC = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes fadeInUp {
           from {
             opacity: 0;

@@ -5,26 +5,26 @@ import GalleryPreview from '../components/GalleryPreview';
 import Testimonials from '../components/Testimonials';
 import LocationSection from '../components/LocationSection';
 import SEOMeta from '../components/SEOMeta';
+import JsonLd from '../components/JsonLd';
+import { pageGraph, webPageSchema } from '../data/schema';
 
 const Home: React.FC = () => {
   return (
     <>
       <SEOMeta
-        title="Expert Car Repair & Auto Services in Faqir Wali | Amin Garage"
-        description="Professional car repair workshop in Faqir Wali, Bahawalnagar. Expert engine repair, AC service, denting, painting & more. 15+ years experience. Call us now."
-        keywords={[
-          "car repair Faqir Wali",
-          "auto workshop Bahawalnagar",
-          "car mechanic near me",
-          "engine repair",
-          "AC repair",
-          "denting painting",
-          "car service center",
-          "automotive repair Pakistan",
-          "Amin Garage"
-        ]}
-        canonicalUrl="https://www.amingarage.com/"
-        ogImage="https://www.amingarage.com/hero.webp"
+        title="Car Repair & Auto Services in Faqir Wali"
+        description="Amin Garage is an auto repair workshop in Faqir Wali, Bahawalnagar. Car denting and body repair, painting, mechanical and engine work, polishing, 15+ years. Call for a quote."
+        pathname="/"
+      />
+      <JsonLd
+        data={pageGraph([
+          webPageSchema({
+            pathname: "/",
+            name: "Car Repair & Auto Services in Faqir Wali | Amin Garage",
+            description:
+              "Auto repair, denting, painting and mechanical work in Faqir Wali, Bahawalnagar District.",
+          }),
+        ])}
       />
       <div>
         <Hero />

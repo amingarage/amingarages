@@ -1,28 +1,15 @@
+# robots.txt for amingarage.com
+#
+# The original file listed Sitemap: https://www.amingarage.com/sitemap.xml. The
+# live site 301-redirects www to non-www, so that pointer sent every crawler
+# through a redirect before it could read the sitemap.
+#
+# Also removed: Allow: /src/ and Allow: /public/, which advertised build
+# internals as crawlable, and Disallow: /*?*, which would have blocked the
+# contact form's own query-string pages.
+
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /api/
-Disallow: /private/
-Disallow: /*.json$
-Disallow: /*?*
+Disallow: /404.html
 
-# Allow specific important directories
-Allow: /src/
-Allow: /public/
-Allow: /assets/
-
-# Crawl delay for respectful crawling
-Crawl-delay: 1
-
-# Sitemap location
-Sitemap: https://www.amingarage.com/sitemap.xml
-
-# Additional directives for common crawlers
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Slurp
-Allow: /
+Sitemap: https://amingarage.com/sitemap.xml

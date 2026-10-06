@@ -5,7 +5,18 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { ignores: ['dist'] },
+  {
+    ignores: [
+      'dist',
+      // Build-time entries, not app code. They run under Node during the build
+      // and never ship to a browser, so the browser globals and the React
+      // Fast Refresh rule do not apply to them.
+      'src/ssr-prerender.tsx',
+      'src/sitemap-entry.ts',
+      'src/og-entry.ts',
+      '.cache',
+    ],
+  },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],

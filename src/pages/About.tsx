@@ -2,6 +2,8 @@ import React from "react";
 import { Users, Award, Wrench, Heart } from "lucide-react";
 import { teamImages } from "../assets/assets";
 import SEOMeta from "../components/SEOMeta";
+import JsonLd from "../components/JsonLd";
+import { pageGraph, webPageSchema } from "../data/schema";
 
 const About: React.FC = () => {
   const teamMembers = [
@@ -55,19 +57,19 @@ const About: React.FC = () => {
   return (
     <>
       <SEOMeta
-        title="About Amin Garage - Trusted Auto Repair Experts in Bahawalnagar"
-        description="Meet our expert team at Amin Garage. 15+ years serving Faqir Wali with professional car repair, engine services, and honest automotive care. Learn our trusted story and values."
-        keywords={[
-          "about Amin Garage",
-          "auto repair team Bahawalnagar",
-          "car mechanics Faqir Wali",
-          "Muhammad Adnan Amin",
-          "automotive experts Pakistan",
-          "trusted garage",
-          "professional mechanics",
-          "car service history"
-        ]}
-        canonicalUrl="https://www.amingarage.com/about"
+        title="About Amin Garage | Auto Repair in Faqir Wali"
+        description="Meet the team behind Amin Garage. 15+ years of car repair, denting, painting and mechanical work in Faqir Wali, Bahawalnagar District. Our workshop and our approach."
+        pathname="/about"
+      />
+      <JsonLd
+        data={pageGraph([
+          webPageSchema({
+            pathname: "/about",
+            name: "About Amin Garage | Auto Repair in Faqir Wali",
+            description:
+              "The team and workshop behind Amin Garage, a car repair business in Faqir Wali with over 15 years of experience.",
+          }),
+        ])}
       />
       <div className="pt-24">
       {/* Hero Section */}
