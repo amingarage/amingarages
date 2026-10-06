@@ -3,7 +3,7 @@ import { Check, Clock } from "lucide-react";
 import { servicesImages } from "../assets/assets";
 import SEOMeta from "../components/SEOMeta";
 import JsonLd from "../components/JsonLd";
-import { pageGraph, webPageSchema } from "../data/schema";
+import { pageGraph, webPageSchema, breadcrumbSchema } from "../data/schema";
 
 const Services: React.FC = () => {
   const services = [
@@ -102,12 +102,12 @@ const Services: React.FC = () => {
     {
       title: "Body Parts",
       description:
-        "High-quality custom paint work to give your vehicle a unique look.",
+        "Genuine and quality replacement body parts for your vehicle, fitted and aligned so the panel gaps and fit are correct.",
       features: [
-        "Color matching",
-        "Full respray",
-        "Decal application",
-        "Clear coat protection",
+        "Bumper replacement",
+        "Headlight restoration",
+        "Grille & panel replacement",
+        "Door and bonnet repair",
       ],
       price: "Starting at PKR 59,999",
       duration: "3–5 days",
@@ -162,12 +162,12 @@ const Services: React.FC = () => {
     {
       title: "Auto Parts",
       description:
-        "Professional window tinting services for privacy and UV protection.",
+        "Reliable spare parts and accessories for routine maintenance and repair, selected to fit your vehicle correctly.",
       features: [
-        "Premium tint films",
-        "UV protection",
-        "Heat reduction",
-        "Lifetime warranty",
+        "OEM & aftermarket parts",
+        "Filters and belts",
+        "Brake components",
+        "Routine service parts",
       ],
       price: "Starting at PKR 12,999",
       duration: "2–3 hours",
@@ -209,18 +209,26 @@ const Services: React.FC = () => {
   return (
     <>
       <SEOMeta
-        title="Car Repair Services in Faqir Wali"
-        description="Car services at Amin Garage, Faqir Wali: engine repair, AC service, denting, painting, wheel alignment, suspension and battery work. Call +92 307 6552348."
+        title="Auto Repair Services in Faqir Wali | Amin Garage"
+        description="Explore Amin Garage services in Faqir Wali including car painting, denting, engine repair, mechanical repairs, detailing, suspension work and spare parts."
         pathname="/services"
       />
       <JsonLd
         data={pageGraph([
           webPageSchema({
             pathname: "/services",
-            name: "Car Repair Services in Faqir Wali | Amin Garage",
+            name: "Auto Repair Services in Faqir Wali | Amin Garage",
             description:
-              "Auto repair, denting, painting and mechanical services offered by Amin Garage in Faqir Wali.",
+              "Explore Amin Garage services in Faqir Wali including car painting, denting, engine repair, mechanical repairs, detailing, suspension work and spare parts.",
+            breadcrumb: [
+              { name: "Home", pathname: "/" },
+              { name: "Services", pathname: "/services" },
+            ],
           }),
+          breadcrumbSchema([
+            { name: "Home", pathname: "/" },
+            { name: "Services", pathname: "/services" },
+          ]),
         ])}
       />
       <div className="pt-24">
@@ -267,11 +275,13 @@ const Services: React.FC = () => {
               >
                 <div className="md:flex">
                   <div className="md:w-1/3 relative">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-48 md:h-full object-cover"
-                    />
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="w-full h-48 md:h-full object-cover"
+                          loading="lazy"
+                          decoding="async"
+                        />
                     <div className="absolute inset-0 bg-black/10 hover:bg-black/20 transition-all duration-300"></div>
                   </div>
                   <div className="md:w-2/3 p-6">

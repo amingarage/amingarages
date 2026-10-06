@@ -3,7 +3,7 @@ import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import emailjs from "emailjs-com";
 import SEOMeta from "../components/SEOMeta";
 import JsonLd from "../components/JsonLd";
-import { pageGraph, webPageSchema } from "../data/schema";
+import { pageGraph, webPageSchema, breadcrumbSchema } from "../data/schema";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -67,7 +67,15 @@ const Contact: React.FC = () => {
             name: "Contact Amin Garage | Car Repair in Faqir Wali",
             description:
               "Phone, email, address and opening hours for Amin Garage in Faqir Wali.",
+            breadcrumb: [
+              { name: "Home", pathname: "/" },
+              { name: "Contact", pathname: "/contact" },
+            ],
           }),
+          breadcrumbSchema([
+            { name: "Home", pathname: "/" },
+            { name: "Contact", pathname: "/contact" },
+          ]),
         ])}
       />
       <div className="pt-24">

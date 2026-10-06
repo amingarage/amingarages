@@ -57,10 +57,10 @@ const Navbar = () => {
         {/* Logo */}
         <NavLink to="/" className="h-20 w-28 flex-shrink-0">
           <img
-            className="h-full w-full object-contain"
-            src={images.logo}
-            alt="Logo"
-          />
+               className="h-full w-full object-contain"
+               src={images.logo}
+               alt="Amin Garage"
+             />
         </NavLink>
 
         {/* Desktop Nav */}

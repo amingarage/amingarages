@@ -237,7 +237,7 @@ const ServicesOverview: React.FC = () => {
                       fetchPriority="high"
                       src={service.icon}
                       className="md:h-14 md:w-14 h-10 w-10"
-                      alt="service icon"
+                      alt={`${service.title} at Amin Garage, Faqir Wali`}
                     />
                   </div>
                 </div>

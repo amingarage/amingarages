@@ -7,6 +7,7 @@ import { blogById } from "../data/blogs";
 import {
   pageGraph,
   webPageSchema,
+  breadcrumbSchema,
   articleSchema,
 } from "../data/schema";
 
@@ -623,7 +624,17 @@ export default function BlogDetails() {
             pathname: `/blog/${blog.id}`,
             name: meta.seoTitle,
             description: meta.description,
+            breadcrumb: [
+              { name: "Home", pathname: "/" },
+              { name: "Blog", pathname: "/blog" },
+              { name: blog.title, pathname: `/blog/${blog.id}` },
+            ],
           }),
+          breadcrumbSchema([
+            { name: "Home", pathname: "/" },
+            { name: "Blog", pathname: "/blog" },
+            { name: blog.title, pathname: `/blog/${blog.id}` },
+          ]),
         ])}
       />
       <div className="min-h-screen bg-white py-12 px-4 sm:px-6">
@@ -643,11 +654,12 @@ export default function BlogDetails() {
 
         {/* Featured Image */}
         <div className="mb-12 overflow-hidden rounded-xl shadow-lg">
-          <img
-            src={blog.image}
-            alt={blog.title}
-            className="w-full h-auto max-h-[500px] object-cover"
-          />
+              <img
+                src={blog.image}
+                alt={blog.title}
+                className="w-full h-auto max-h-[500px] object-cover"
+                decoding="async"
+              />
         </div>
 
         {/* Blog Content with processed links */}

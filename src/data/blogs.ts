@@ -30,9 +30,9 @@ export const blogs: BlogMeta[] = [
   {
     id: "auto-car-air-conditioning-service-beat-the-heat-with-amin-garage",
     title: "Auto Car Air Conditioning Service: Beat the Heat with Amin Garage",
-    seoTitle: "Car AC Service in Faqir Wali",
+    seoTitle: "Car AC Service & Repair in Faqir Wali | Amin Garage",
     description:
-      "Car AC service in Faqir Wali: leak detection, compressor checks and gas recharge explained by Amin Garage. Beat the summer heat. Call to book.",
+      "Learn why regular car AC service matters and how Amin Garage provides reliable AC repair, cooling system checks and maintenance in Faqir Wali.",
     category: "AC & Cooling",
     date: "September 16, 2025",
     dateISO: "2025-09-16",
@@ -40,9 +40,9 @@ export const blogs: BlogMeta[] = [
   {
     id: "car-tire-care-maximizing-life-and-performance",
     title: "Car Tire Care: Maximizing Life and Performance",
-    seoTitle: "Car Tire Care in Faqir Wali",
+    seoTitle: "Car Tire Care Tips | Tyre Maintenance Guide | Amin Garage",
     description:
-      "Pressure, tread depth, rotation and balancing: how to get more from your tires and wear them evenly. Tyre care advice from Amin Garage, Bahawalnagar.",
+      "Learn practical car tire care tips to improve tire life, safety and performance with professional tyre inspection and service from Amin Garage.",
     category: "Tire & Wheels",
     date: "September 16, 2025",
     dateISO: "2025-09-16",
@@ -50,9 +50,9 @@ export const blogs: BlogMeta[] = [
   {
     id: "automobile-mechanic-you-drive-the-car-but-not-the-expertise",
     title: "Automobile Mechanic: You Drive the Car but Not the Expertise",
-    seoTitle: "What an Auto Mechanic Actually Does",
+    seoTitle: "How to Choose a Good Car Mechanic | Amin Garage",
     description:
-      "What an automobile mechanic does that you cannot: reading fault codes, compression and leak-down testing, and diagnosing rather than guessing. Amin Garage.",
+      "Learn how to choose a reliable automobile mechanic and why professional diagnosis, quality repairs and experienced technicians matter for your vehicle.",
     category: "Mechanics",
     date: "September 16, 2025",
     dateISO: "2025-09-16",
@@ -60,9 +60,9 @@ export const blogs: BlogMeta[] = [
   {
     id: "car-painting-restoring-beauty-and-value-to-your-vehicle",
     title: "Car Painting: Restoring Beauty and Value to Your Vehicle",
-    seoTitle: "Car Painting and Respray Guide",
+    seoTitle: "Car Painting in Faqir Wali | Professional Auto Painting",
     description:
-      "Car painting explained: surface prep, primer, colour matching and clear coat, and how a respray protects your car's value. Workshop guide from Amin Garage.",
+      "Learn how professional car painting restores your vehicle's appearance and protection. Amin Garage offers quality auto painting in Faqir Wali.",
     category: "Painting",
     date: "March 28, 2024",
     dateISO: "2024-03-28",
@@ -70,9 +70,9 @@ export const blogs: BlogMeta[] = [
   {
     id: "car-polishing-refining-shine-and-safeguarding-your-automobile",
     title: "Car Polishing: Refining Shine and Safeguarding Your Automobile",
-    seoTitle: "Car Polishing vs. Waxing",
+    seoTitle: "Car Polishing in Faqir Wali | Shine & Paint Protection",
     description:
-      "Polishing removes swirl marks and oxidation; waxing and ceramic seal the result. What each does, which your car needs, and how long it lasts.",
+      "Learn how car polishing restores shine and protects your vehicle's paint. Amin Garage provides professional car polishing and detailing in Faqir Wali.",
     category: "Detailing",
     date: "March 28, 2024",
     dateISO: "2024-03-28",
@@ -80,9 +80,9 @@ export const blogs: BlogMeta[] = [
   {
     id: "auto-denting-repairing-strength-and-beauty-to-your-car",
     title: "Auto Denting: Repairing Strength and Beauty to Your Car",
-    seoTitle: "Auto Denting: PDR vs. Repaint",
+    seoTitle: "Auto Denting in Faqir Wali | Car Dent Repair | Amin Garage",
     description:
-      "Paintless dent repair versus a panel repaint: how to tell which your damage needs, and why rust is worse than the dent it started as.",
+      "Learn how professional auto denting restores your vehicle's body and appearance. Amin Garage provides dent repair and body work in Faqir Wali.",
     category: "Body Shop",
     date: "April 3, 2024",
     dateISO: "2024-04-03",
@@ -90,9 +90,9 @@ export const blogs: BlogMeta[] = [
   {
     id: "auto-body-parts-how-to-make-your-car-strong-safe-and-styled",
     title: "Auto Body Parts: How to Make Your Car Strong, Safe, and Styled",
-    seoTitle: "Choosing Auto Body Parts",
+    seoTitle: "Auto Body Parts & Repair | Amin Garage Faqir Wali",
     description:
-      "OEM, aftermarket and salvage parts compared, plus what to check before fitting a bumper or panel yourself. Advice from Amin Garage in Bahawalnagar.",
+      "Learn about vehicle body parts, replacement and repair options and how quality body components help keep your car safe and looking its best.",
     category: "Body Parts",
     date: "April 9, 2024",
     dateISO: "2024-04-09",
@@ -100,9 +100,9 @@ export const blogs: BlogMeta[] = [
   {
     id: "auto-spare-parts-reliable-and-roadworthy-performance",
     title: "Auto Spare Parts: Reliable and Roadworthy Performance",
-    seoTitle: "Where to Buy Auto Spare Parts",
+    seoTitle: "Auto Spare Parts in Faqir Wali | Amin Garage",
     description:
-      "OEM versus aftermarket spare parts, how to spot a bad part before it is fitted, and what actually affects the life of a component.",
+      "Learn how quality auto spare parts help maintain vehicle performance, reliability and safety. Amin Garage provides trusted parts and accessories.",
     category: "Spare Parts",
     date: "April 16, 2024",
     dateISO: "2024-04-16",

@@ -71,14 +71,39 @@ export const websiteSchema = {
   publisher: { "@id": ORG_ID },
 } satisfies Record<string, unknown>;
 
+export interface BreadcrumbItem {
+  name: string;
+  pathname: string;
+}
+
+/**
+ * BreadcrumbList.
+ *
+ * Head-only structured data: it describes the page hierarchy to crawlers without
+ * rendering anything on screen. The blog posts also declare breadcrumb data,
+ * since Home -> Blog -> <post> is the hierarchy Google displays for them.
+ */
+export const breadcrumbSchema = (items: BreadcrumbItem[]) => ({
+  "@type": "BreadcrumbList",
+  "@id": `${canonical(items[items.length - 1].pathname)}#breadcrumb`,
+  itemListElement: items.map((item, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: item.name,
+    item: canonical(item.pathname),
+  })),
+}) satisfies Record<string, unknown>;
+
 export const webPageSchema = ({
   pathname,
   name,
   description,
+  breadcrumb,
 }: {
   pathname: string;
   name: string;
   description: string;
+  breadcrumb?: BreadcrumbItem[];
 }) => {
   const id = `${canonical(pathname)}#webpage`;
   return {
@@ -91,6 +116,7 @@ export const webPageSchema = ({
     isPartOf: { "@id": WEBSITE_ID },
     about: { "@id": ORG_ID },
     primaryImageOfPage: ogImage,
+    ...(breadcrumb ? { breadcrumb: { "@id": `${canonical(pathname)}#breadcrumb` } } : {}),
   } satisfies Record<string, unknown>;
 };
 

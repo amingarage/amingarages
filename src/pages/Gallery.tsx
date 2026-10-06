@@ -157,7 +157,7 @@ import { galleryImages } from "../assets/assets";
 import SEOMeta from "../components/SEOMeta";
 import JsonLd from "../components/JsonLd";
 import { business } from "../data/site";
-import { pageGraph, webPageSchema } from "../data/schema";
+import { pageGraph, webPageSchema, breadcrumbSchema } from "../data/schema";
 
 const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -188,18 +188,26 @@ const Gallery: React.FC = () => {
   return (
     <>
       <SEOMeta
-        title="Workshop Gallery | Car Repair Photos in Faqir Wali"
-        description="Photos from the Amin Garage workshop in Faqir Wali: our facility, mechanics at work, and finished body repair and painting jobs. Photos from a Bahawalnagar auto shop."
+        title="Amin Garage Gallery | Auto Repair & Car Painting Work"
+        description="View Amin Garage photos of professional car repairs, denting, painting, mechanical work, engine services and workshop facilities in Faqir Wali."
         pathname="/gallery"
       />
       <JsonLd
         data={pageGraph([
           webPageSchema({
             pathname: "/gallery",
-            name: "Workshop Gallery | Car Repair Photos in Faqir Wali",
+            name: "Amin Garage Gallery | Auto Repair & Car Painting Work",
             description:
-              "Photos of the Amin Garage workshop, technicians, and completed repair and painting jobs.",
+              "View Amin Garage photos of professional car repairs, denting, painting, mechanical work, engine services and workshop facilities in Faqir Wali.",
+            breadcrumb: [
+              { name: "Home", pathname: "/" },
+              { name: "Gallery", pathname: "/gallery" },
+            ],
           }),
+          breadcrumbSchema([
+            { name: "Home", pathname: "/" },
+            { name: "Gallery", pathname: "/gallery" },
+          ]),
           {
             "@type": "ImageGallery",
             "@id": `${business.url}/gallery#gallery`,
@@ -231,11 +239,13 @@ const Gallery: React.FC = () => {
                 className="relative group cursor-pointer overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={() => openLightbox(index)}
               >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
-                />
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                      loading="lazy"
+                      decoding="async"
+                    />
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
                   <div className="text-[#C0C0C0] opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
                     <p className="text-lg font-semibold">{image.alt}</p>
@@ -251,11 +261,12 @@ const Gallery: React.FC = () => {
       {selectedImage !== null && (
         <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
           <div className="relative max-w-4xl max-h-full">
-            <img
-              src={galleryImages[selectedImage].src}
-              alt={galleryImages[selectedImage].alt}
-              className="max-w-full max-h-full object-contain"
-            />
+              <img
+                src={galleryImages[selectedImage].src}
+                alt={galleryImages[selectedImage].alt}
+                className="max-w-full max-h-full object-contain"
+                decoding="async"
+              />
 
             {/* Close Button */}
             <button

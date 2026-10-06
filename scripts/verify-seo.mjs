@@ -84,11 +84,22 @@ const rootContent = (html) => {
   // Unbalanced markup: fall back to everything up to the first trailing script.
   return html.slice(i, i + 200000);
 };
+/**
+ * Value of a <meta name|property="..."> attribute.
+ *
+ * The quote character is captured and backreferenced rather than written as a
+ * character class. A class like [^"']* stops at the first apostrophe, so any
+ * description containing "vehicle's" was read as only the text before the
+ * apostrophe and reported as far too short.
+ */
 const attr = (html, name) => {
   const m = html.match(
-    new RegExp(`<meta[^>]+(?:name|property)=["']${name}["'][^>]*content=["']([^"']*)["']`, "i")
+    new RegExp(
+      `<meta[^>]+(?:name|property)=(["'])${name}\\1[^>]*content=(["'])([\\s\\S]*?)\\2`,
+      "i"
+    )
   );
-  return m?.[1] ?? null;
+  return m?.[3] ?? null;
 };
 const titleOf = (html) => html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]?.trim() ?? null;
 

@@ -57,9 +57,11 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
   modifiedTime,
   omitCanonical = false,
 }) => {
-  const fullTitle = title.includes(business.name)
-    ? title
-    : `${title} | ${business.name}`;
+  // Used verbatim. An earlier version appended " | Amin Garage" whenever the
+  // title did not already contain the brand, which silently rewrote titles the
+  // owner had specified exactly. Two titles deliberately omit the brand, so any
+  // automatic suffixing is wrong here.
+  const fullTitle = title;
 
   const url = canonical(pathname);
 

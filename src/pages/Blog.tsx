@@ -5,7 +5,8 @@ import { blogImages } from "../assets/blogs/blogs";
 import SEOMeta from "../components/SEOMeta";
 import JsonLd from "../components/JsonLd";
 import { business } from "../data/site";
-import { pageGraph, webPageSchema } from "../data/schema";
+import { blogs as blogMeta } from "../data/blogs";
+import { pageGraph, webPageSchema, breadcrumbSchema } from "../data/schema";
 
 const blogs = [
   {
@@ -529,24 +530,29 @@ const Blog: React.FC = () => {
   return (
     <>
       <SEOMeta
-        title="Car Repair Blog | Advice from Amin Garage, Faqir Wali"
-        description="Car repair and maintenance guides from the Amin Garage team in Faqir Wali. Read about AC service, tyre care, denting, painting, polishing and spare parts."
+        title="Amin Garage Blog | Car Repair & Maintenance Tips"
+        description="Read Amin Garage automotive tips about car repair, maintenance, painting, denting, polishing, spare parts, AC service and vehicle care in Pakistan."
         pathname="/blog"
       />
       <JsonLd
         data={pageGraph([
           webPageSchema({
             pathname: "/blog",
-            name: "Car Repair Blog | Advice from Amin Garage, Faqir Wali",
+            name: "Amin Garage Blog | Car Repair & Maintenance Tips",
             description:
-              "Car repair and maintenance articles written by the Amin Garage team.",
+              "Read Amin Garage automotive tips about car repair, maintenance, painting, denting, polishing, spare parts, AC service and vehicle care in Pakistan.",
+            breadcrumb: [{ name: "Home", pathname: "/" }, { name: "Blog", pathname: "/blog" }],
           }),
+          breadcrumbSchema([
+            { name: "Home", pathname: "/" },
+            { name: "Blog", pathname: "/blog" },
+          ]),
           {
             "@type": "ItemList",
             "@id": `${business.url}/blog#list`,
             name: "Amin Garage car repair articles",
-            numberOfItems: blogs.length,
-            itemListElement: blogs.map((post, i) => ({
+            numberOfItems: blogMeta.length,
+            itemListElement: blogMeta.map((post, i) => ({
               "@type": "ListItem",
               position: i + 1,
               url: `${business.url}/blog/${post.id}`,
@@ -583,11 +589,13 @@ const Blog: React.FC = () => {
               >
                 {/* Image Section */}
                 <div className="relative md:w-1/3 overflow-hidden">
-                  <img
-                    src={blog.image}
-                    alt={blog.title}
-                    className="w-full h-56 md:h-full object-cover transition-transform duration-300 hover:scale-110"
-                  />
+                      <img
+                        src={blog.image}
+                        alt={blog.title}
+                        className="w-full h-56 md:h-full object-cover transition-transform duration-300 hover:scale-110"
+                        loading="lazy"
+                        decoding="async"
+                      />
                   <div className="absolute top-4 left-4">
                     <span className="bg-gradient-to-r from-red-600 to-red-800 text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow-md">
                       {blog.category}

@@ -35,7 +35,7 @@ const BannerSlider = ({ autoPlay = true, interval = 1500 }) => {
               loading="lazy"
               fetchPriority="high"
               src={desktopImages[index]}
-              alt={`Slide ${index + 1}`}
+              alt={`Auto repair at the Amin Garage workshop in Faqir Wali, Bahawalnagar`}
               className="hidden md:block w-full h-full object-cover"
             />
             {/* <img
@@ -50,7 +50,7 @@ const BannerSlider = ({ autoPlay = true, interval = 1500 }) => {
               loading="lazy"
               fetchPriority="high"
               src={mobileImages[index]}
-              alt={`Slide ${index + 1}`}
+              alt={`Auto repair at the Amin Garage workshop in Faqir Wali, Bahawalnagar`}
               className="block md:hidden w-full h-full object-cover"
             />
           </div>

@@ -12,17 +12,17 @@ const Home: React.FC = () => {
   return (
     <>
       <SEOMeta
-        title="Car Repair & Auto Services in Faqir Wali"
-        description="Amin Garage is an auto repair workshop in Faqir Wali, Bahawalnagar. Car denting and body repair, painting, mechanical and engine work, polishing, 15+ years. Call for a quote."
+        title="Amin Garage | Auto Repair & Car Painting in Faqir Wali"
+        description="Amin Garage is a trusted auto repair workshop in Faqir Wali offering car painting, denting, engine repair, mechanical work, detailing and spare parts."
         pathname="/"
       />
       <JsonLd
         data={pageGraph([
           webPageSchema({
             pathname: "/",
-            name: "Car Repair & Auto Services in Faqir Wali | Amin Garage",
+            name: "Amin Garage | Auto Repair & Car Painting in Faqir Wali",
             description:
-              "Auto repair, denting, painting and mechanical work in Faqir Wali, Bahawalnagar District.",
+              "Amin Garage is a trusted auto repair workshop in Faqir Wali offering car painting, denting, engine repair, mechanical work, detailing and spare parts.",
           }),
         ])}
       />

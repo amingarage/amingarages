@@ -71,10 +71,12 @@ export const openingHours = [
 /** Towns we actually serve. Used for copy and schema `areaServed`. */
 export const serviceAreas = [
   "Faqir Wali",
+  "Faqirwali",
   "Haroonabad",
   "Bahawalnagar",
   "Fort Abbas",
   "Chishtian",
+  "Chishtiyan",
   "Dahranwala",
   "Dunga Bunga",
   "Shaheed Chowk",

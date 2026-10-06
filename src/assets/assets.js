@@ -103,32 +103,32 @@ export const teamImages = {
 export const galleryImages = [
     {
         src: wheelAlignment,
-        alt: "wheel alignment",
+        alt:   "Wheel alignment service at Amin Garage, Faqir Wali",
         category: "Facility",
     },
     {
         src: batteryReplacement,
-        alt: "Professional mechanics at work",
+        alt: "Mechanics at work inside the Amin Garage workshop in Faqir Wali",
         category: "Team",
     },
     {
         src: transmissionService,
-        alt: "Transmission service",
+        alt: "Transmission service on a car at Amin Garage, Bahawalnagar",
         category: "Service",
     },
     {
         src: breakRepair,
-        alt: "Brake repair service",
+        alt: "Brake repair service at the Amin Garage workshop, Faqir Wali",
         category: "Service",
     },
     {
         src: engineMaintenance,
-        alt: "Engine diagnostics",
+        alt: "Engine diagnostics and mechanical repairs at Amin Garage",
         category: "Technology",
     },
     {
         src: howToChooseRightMotorOil,
-        alt: "Oil change service",
+        alt: "Routine oil change and vehicle inspection at Amin Garage, Faqir Wali",
         category: "Service",
     },
 ];

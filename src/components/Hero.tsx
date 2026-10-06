@@ -13,7 +13,7 @@ const Hero = () => {
         <div className="absolute inset-0 z-0">
           <img
             src={heroImage}
-            alt="Mechanic"
+            alt="Amin Garage auto repair workshop in Faqir Wali, Bahawalnagar"
             className="w-full h-full object-cover"
             loading="eager"
             fetchPriority="high"

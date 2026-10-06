@@ -3,7 +3,7 @@ import { Users, Award, Wrench, Heart } from "lucide-react";
 import { teamImages } from "../assets/assets";
 import SEOMeta from "../components/SEOMeta";
 import JsonLd from "../components/JsonLd";
-import { pageGraph, webPageSchema } from "../data/schema";
+import { pageGraph, webPageSchema, breadcrumbSchema } from "../data/schema";
 
 const About: React.FC = () => {
   const teamMembers = [
@@ -57,18 +57,23 @@ const About: React.FC = () => {
   return (
     <>
       <SEOMeta
-        title="About Amin Garage | Auto Repair in Faqir Wali"
-        description="Meet the team behind Amin Garage. 15+ years of car repair, denting, painting and mechanical work in Faqir Wali, Bahawalnagar District. Our workshop and our approach."
+        title="About Amin Garage | Trusted Auto Repair in Faqir Wali"
+        description="Learn about Amin Garage, a trusted auto repair workshop in Faqir Wali offering professional car repairs, denting, painting, engine work and vehicle care."
         pathname="/about"
       />
       <JsonLd
         data={pageGraph([
-          webPageSchema({
-            pathname: "/about",
-            name: "About Amin Garage | Auto Repair in Faqir Wali",
-            description:
-              "The team and workshop behind Amin Garage, a car repair business in Faqir Wali with over 15 years of experience.",
-          }),
+  webPageSchema({
+    pathname: "/about",
+    name: "About Amin Garage | Trusted Auto Repair in Faqir Wali",
+    description:
+      "Learn about Amin Garage, a trusted auto repair workshop in Faqir Wali offering professional car repairs, denting, painting, engine work and vehicle care.",
+    breadcrumb: [{ name: "Home", pathname: "/" }, { name: "About", pathname: "/about" }],
+  }),
+  breadcrumbSchema([
+    { name: "Home", pathname: "/" },
+    { name: "About", pathname: "/about" },
+  ]),
         ])}
       />
       <div className="pt-24">
@@ -96,26 +101,29 @@ const About: React.FC = () => {
               </h2>
               <div className="space-y-4 text-lg text-gray-600">
                 <p className="">
-                  Established in 2025 by automotive enthusiast Adnan Amin, Amin
-                  Garage began as a family-driven workshop with a clear
-                  vision—to de-liver honest, dependable automotive care to the
-                  community. What started as a modest one-bay shop has evolved
-                  into a full-service automotive center, yet our values of
-                  integrity, trust, and customer-first ser-vice remain at the
-                  heart of everything we do. We pride ourselves on treating
-                  every client like family and every vehicle with meticulous
-                  care. Today, our team of certified technicians proudly serves
-                  hundreds of customers each month, managing everything from
-                  routine maintenance to advanced repairs with precision,
-                  dedication, and unmatched quality.
+                  Led by automotive enthusiast Adnan Amin, Amin Garage has grown
+                  from a modest one-bay shop into a full-service automotive
+                  centre, and we now bring more than 15 years of hands-on repair
+                  experience to drivers across Faqir Wali and Bahawalnagar. What
+                  began with a simple aim—to deliver honest, dependable
+                  automotive care to the community—has not changed. Our values of
+                  integrity, trust and customer-first service remain at the heart
+                  of everything we do, and we treat every client like family and
+                  every vehicle with meticulous care. Today our team handles
+                  everything from routine maintenance to advanced repairs with
+                  precision and dedication.
                 </p>
               </div>
             </div>
             <div className="relative">
               <img
                 src="https://images.pexels.com/photos/3593922/pexels-photo-3593922.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Our garage facility"
+                alt="Inside the Amin Garage workshop in Faqir Wali, Bahawalnagar"
                 className="rounded-xl shadow-lg"
+                loading="lazy"
+                decoding="async"
+                width={800}
+                height={533}
               />
               <div className="absolute -bottom-6 -right-6 bg-red-500 text-[#C0C0C0] p-6 rounded-xl">
                 <div className="text-center">
@@ -207,11 +215,13 @@ const About: React.FC = () => {
                 key={index}
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-[28rem] object-cover"
-                />
+                  <img
+                    src={member.image}
+                    alt={`${member.name} at Amin Garage`}
+                    className="w-full h-[28rem] object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 <div className="p-6 text-center">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     {member.name}
